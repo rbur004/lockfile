@@ -54,7 +54,7 @@ int i;  /*Loop index*/
 				int l;			/*return code from the read call*/
 				int r; 			/*return result from the kill call*/
 #if defined(__linux__)
-					if(lock(fd, 1) == 0)
+					if(__lock(fd, 1) == 0)
 					{
 #endif
 					if((l = read(fd, buff, 16)) != -1 
@@ -66,7 +66,7 @@ int i;  /*Loop index*/
 						write(fd, pid_str, strlen(pid_str) + 1);
 						write(fd, "\n", 1);
 #if defined(__linux__)
-						lock(fd, 0);
+						__lock(fd, 0);
 #endif
 						close(fd);
 						return 0;
@@ -107,13 +107,13 @@ int i;  /*Loop index*/
 		else
 		{
 #if defined(__linux__)
-			if(lock(fd, 1) == 0)
+			if(__lock(fd, 1) == 0)
 			{
 #endif
 			write(fd, pid_str, strlen(pid_str) + 1);
 			write(fd, "\n", 1);
 #if defined(__linux__)
-			lock(fd, 0);
+			__lock(fd, 0);
 			fchmod(fd, 0700); //Linux oddity. O_EXCL changes the mode, and we need to fix it.
 #endif
 			close(fd);
