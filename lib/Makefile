@@ -1,4 +1,4 @@
-LIBDEST=/usr/local/lib
+LIBDEST=${RPM_BUILD_ROOT}/usr/local/lib
 
 all: liblockfile.a
 

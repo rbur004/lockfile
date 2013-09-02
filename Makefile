@@ -1,4 +1,4 @@
-BINDEST=/usr/local/bin
+BINDEST=${RPM_BUILD_ROOT}/usr/local/bin
 LIBSRC=lib
 
 all: lockfile
