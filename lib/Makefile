@@ -12,6 +12,7 @@ liblockfile.a: liblockfile.o
 ${LIBDEST}/liblockfile.a: liblockfile.a
 
 install: all
+	install -d ${LIBDEST}
 	cp liblockfile.a ${LIBDEST}
 
 clean:

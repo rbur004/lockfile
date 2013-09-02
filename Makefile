@@ -16,4 +16,5 @@ clean:
 install: all
 	make -C lib install
 	make -C include install
+	install -d ${BINDEST}
 	cp lockfile ${BINDEST}
