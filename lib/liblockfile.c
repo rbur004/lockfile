@@ -34,7 +34,7 @@ int i;  /*Loop index*/
   for(i = 0; i < 10; i++)
   {
 #if defined(__linux__)
-    if((fd = open(argv[1], O_CREAT | O_EXCL | O_RDWR , 0x700)) ==  -1)
+    if((fd = open(filename, O_CREAT | O_EXCL | O_RDWR , 0x700)) ==  -1)
 #else /*Assuming BSD*/
     if((fd = open(filename, O_CREAT | O_EXCL | O_RDWR | O_EXLOCK, 0x700)) ==  -1)
 #endif
@@ -44,7 +44,7 @@ int i;  /*Loop index*/
 #if defined(__linux__)
         sleep(sleep_time); //don't want grab the lock before the creating process
         //better on BSD, which has locking built into the open.
-        if( (fd = open(argv[1], O_RDWR, 0x700)) != -1)
+        if( (fd = open(filename, O_RDWR, 0x700)) != -1)
 #else /*Assuming BSD/Mac OS X if not __linux__*/
         if( (fd = open(filename, O_RDWR |  O_EXLOCK | O_NONBLOCK, 0)) != -1)
 #endif
