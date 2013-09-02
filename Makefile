@@ -1,13 +1,13 @@
-BIN=/usr/local/bin
-LIB=lib
+BINDEST=/usr/local/bin
+LIBSRC=lib
 
 all: lockfile
   
-${LIB}/liblockfile.a:
+${LIBSRC}/liblockfile.a:
 	make -C lib
 
-lockfile: lockfile.c ${LIB}/liblockfile.a
-	cc -L ${LIB} -o lockfile lockfile.c -llockfile
+lockfile: lockfile.c ${LIBSRC}/liblockfile.a
+	cc -L ${LIBSRC} -o lockfile lockfile.c -llockfile
 
 clean:
 	make -C lib clean
@@ -15,4 +15,5 @@ clean:
 
 install: all
 	make -C lib install
-	cp lockfile ${BIN}
+	make -C include install
+	cp lockfile ${BINDEST}

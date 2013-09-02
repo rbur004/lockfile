@@ -1,0 +1,4 @@
+#!/bin/bash
+
+git archive --prefix lockfile-1.0.0/ HEAD | \
+gzip > ../lockfile-1.0.0.tar.gz
