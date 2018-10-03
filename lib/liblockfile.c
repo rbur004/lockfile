@@ -1,6 +1,7 @@
 #include <sys/types.h>
 #include <errno.h>
 #include <stdio.h>
+#include <stdlib.h> //needed for atoi on Mac OS X
 #include <unistd.h>
 #include <fcntl.h>
 #include <signal.h>
