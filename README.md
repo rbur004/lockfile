@@ -36,11 +36,12 @@ If the Process holding the lock is not running, we steal the lock.
   Installs into /usr/local/bin
   
 ## TEST:
+
   Simple check in test/. 
-  cd to test and run ./test.sh
-  This will create a lockfile with ./lock_and_leave.sh
-  Then ./test.sh will steal the lock, as ./lock_and_leave.sh will no longer be running
-  Then it runs ./inner_test.sh, which will fail to get the lock, as ./test.sh has the lock.
+* cd to test and run ./test.sh
+* This will create a lockfile with ./lock_and_leave.sh
+* Then ./test.sh will steal the lock, as ./lock_and_leave.sh will no longer be running
+* Then it runs ./inner_test.sh, which will fail to get the lock, as ./test.sh has the lock.
 
 ## LICENSE:
 
