@@ -7,6 +7,7 @@
 #include <fcntl.h>
 #include <signal.h>
 #include <string.h>
+#include <sys/stat.h> //Linux compile needed this for fchmod
 #include "../include/lockfile_p.h"
 
 #if defined(__linux__)
